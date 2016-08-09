@@ -1,0 +1,35 @@
+
+<html ng-app="meApp">
+<head>
+	<title></title>
+	<style type="text/css" media="screen">
+		
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	<script src="me.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="me.js">
+	</head>
+	<body ng-controller="meController">
+		<div id="wrapper" ng-style="{color: myColor}">
+			<div id="header">
+				<h1>Consider the following...</h1>
+			</div>
+			<div class="item" ng-repeat="student in students track by $index">
+				Name: {{student.name}}
+				<input type="checkbox" ng-model="student.checked">
+				<span ng-show="student.checked" ng-class="{'trueStoryClass':1}">{{student.former}}</span>
+			</div>
+			<div class="color-input">
+				<input type="text" ng-model="myColor">
+			</div>
+			<label>Click Me<input type="checkbox" ng-model="checked" ng-init="checked=true"></label>
+			<hr />
+			<span ng-show="checked">Show when checked</span>
+			<span ng-if="checked">This is removed when the checkbox is checked</span>
+			<hr />
+			<div ng-hide="myColor == 'red'">
+				I will hide if the color is set to red!
+			</div>
+		</div>
+	</body>
+</html>
